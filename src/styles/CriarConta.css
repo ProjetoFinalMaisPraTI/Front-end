@@ -1,0 +1,140 @@
+.criar-conta-pagina {
+  min-height: 100vh;
+  background: #F0EEE6;
+  padding: 24px;
+}
+
+.criar-conta-topo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.logo-icone {
+  display: flex;
+  color: var(--cor-primaria-bold);
+}
+
+.logo-texto {
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: var(--cor-primaria-bold);
+}
+
+.criar-conta-card {
+  max-width: 380px;
+  margin: 0 auto;
+  background: var(--branco);
+  border-radius: 16px;
+  padding: 32px 28px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.voltar {
+  display: inline-flex;
+  color: var(--cor-primaria-bold);
+  margin-bottom: 16px;
+}
+
+.criar-conta-card h1 {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--preto);
+  margin-bottom: 6px;
+}
+
+.criar-conta-subtitulo {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--cinza-claro);
+  margin-bottom: 28px;
+}
+
+.criar-conta-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.campo label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--cinza-escuro);
+  margin-bottom: 6px;
+}
+
+.campo-input {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--cor-primaria-100);
+  border-radius: 8px;
+  padding: 10px 12px;
+  transition: var(--transition);
+}
+
+.campo-input:focus-within {
+  border-color: var(--cor-primaria);
+}
+
+.campo-input svg {
+  color: var(--cinza-claro);
+  flex-shrink: 0;
+}
+
+.campo-input input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--preto);
+}
+
+.campo-input input::placeholder {
+  color: var(--cinza-claro);
+}
+
+.campo-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.8rem;
+  color: var(--cinza-escuro);
+  cursor: pointer;
+}
+
+.campo-checkbox input {
+  margin-top: 2px;
+}
+
+.botao-criar {
+  background: var(--cor-primaria-bold);
+  color: var(--branco);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 4px;
+}
+
+.botao-criar:hover {
+  background: var(--cor-primaria-900);
+}
+
+.ja-tem-conta {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--cinza-escuro);
+  margin-top: 20px;
+}
+
+.ja-tem-conta a {
+  color: var(--cor-primaria-bold);
+  font-weight: 600;
+}
