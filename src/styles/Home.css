@@ -1,0 +1,128 @@
+.home-hero {
+  max-width: 700px;
+  margin: 70px auto 50px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.home-hero h1 {
+  font-size: 2.2rem;
+  color: var(--preto);
+  margin-bottom: 16px;
+}
+
+.home-hero-subtitulo {
+  color: var(--cinza-escuro);
+  margin-bottom: 28px;
+}
+
+.botao-comecar {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--cor-primaria-bold);
+  color: var(--branco);
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.botao-comecar:hover {
+  background: var(--cor-primaria-900);
+}
+
+.home-features {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: var(--transition);
+}
+
+.feature-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.feature-card h3 {
+  color: var(--preto);
+  margin: 14px 0 8px;
+  font-size: 1.05rem;
+}
+
+.feature-card p {
+  color: var(--cinza-escuro);
+  font-size: 0.9rem;
+}
+
+.icone-feature {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--cor-primaria-light);
+  color: var(--cor-primaria-bold);
+}
+
+.home-destaque {
+  max-width: 1000px;
+  margin: 0 auto 40px;
+  padding: 40px;
+  background: var(--branco);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.home-destaque-inverso {
+  background: transparent;
+  padding: 0 40px;
+}
+
+.destaque-imagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 180px;
+  border-radius: 12px;
+  background: var(--cor-primaria-light);
+  color: var(--cor-primaria-bold);
+}
+
+.destaque-texto h2 {
+  font-size: 1.3rem;
+  color: var(--preto);
+  margin-bottom: 10px;
+}
+
+.destaque-texto p {
+  color: var(--cinza-escuro);
+  font-size: 0.95rem;
+}
+
+.home-footer {
+  background: var(--cor-primaria-bold);
+  color: var(--cor-primaria-100);
+  text-align: center;
+  padding: 20px;
+  margin-top: 60px;
+  font-size: 0.85rem;
+}

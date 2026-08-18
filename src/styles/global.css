@@ -2,18 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-body{
-  background: var(--cor-secundaria-light);
+body {
+  background: #F0EEE6;
   color: var(--preto);
 }
 
-a{
+a {
   text-decoration: none;
   color: inherit;
 }
 
-ul{
+ul {
   list-style: none;
 }
