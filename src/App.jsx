@@ -1,18 +1,18 @@
 import { Routes, Route } from 'react-router-dom';
-import Header from './Header';
-import Home from './Home';
-import Sobre from './Sobre';
-import Contato from './Contato';
-import CriarConta from './CriarConta';
-import Login from './Login';
+import Header from './components/Header/Header';
+import Home from './pages/Home/Home';
+import Sobre from './pages/About/About';
+import Contact from './pages/Contact/Contact';
+import CreateAccount from './pages/CreateAccount/CreateAccount';
+import Login from './pages/Login/Login';
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<><Header /><Home /></>} />
       <Route path="/sobre" element={<><Header /><Sobre /></>} />
-      <Route path="/contato" element={<><Header /><Contato /></>} />
-      <Route path="/criar-conta" element={<CriarConta />} />
+      <Route path="/contato" element={<><Header /><Contact /></>} />
+      <Route path="/criar-conta" element={<CreateAccount />} />
       <Route path="/entrar" element={<Login />} />
     </Routes>
   );
