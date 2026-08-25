@@ -1,0 +1,27 @@
+.header_titulo {
+    text-align: left;
+    font-style: oblique;
+    font-size: 20px;
+    letter-spacing: 1px;
+    padding-left: 20px;
+    margin: 10px 0 2px;
+}
+
+.header_nav {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding: 2px 0;
+    border-bottom: 2px solid;
+}
+
+.header_nav a {
+    font-size: 14px;
+    font-weight: oblique;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.header_nav a:hover {
+    color: rgb(78, 78, 248);
+}
