@@ -5,7 +5,6 @@ import Sobre from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import CreateAccount from './pages/CreateAccount/CreateAccount';
 import Login from './pages/Login/Login';
-import Movimentacoes from './pages/Movimentacoes/Movimentacoes';
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
       <Route path="/contato" element={<><Header /><Contact /></>} />
       <Route path="/criar-conta" element={<CreateAccount />} />
       <Route path="/entrar" element={<Login />} />
-      <Route path="/movimentacoes" element={<Movimentacoes />} />
     </Routes>
   );
 }
