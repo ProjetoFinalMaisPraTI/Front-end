@@ -56,6 +56,12 @@
   border-color: var(--cor-primaria);
 }
 
+.handle__erro {
+  color: var(--alerta);
+  font-size: 0.85rem;
+  margin-top: -8px;
+}
+
 .handle__acoes {
   display: flex;
   justify-content: flex-end;

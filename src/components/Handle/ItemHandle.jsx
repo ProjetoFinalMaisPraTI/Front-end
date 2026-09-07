@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import './Handle.css';
 
-// Handle modal, usado pra ADICIONAR ou EDITAR um item.
-// O texto do título muda de acordo com modo (adicionar/editar) e tipo (despesas/ganhos).
+// Handle - usado pra ADICIONAR ou EDITAR item.
+// texto do título muda com modo adicionar/editar e tipo despesas/ganhos.
 //
-// Props esperadas:
+// Props:
 // - tipo: "despesas" ou "ganhos"
 // - modo: "adicionar" ou "editar"
 // - itemInicial: o item que está sendo editado (ou null, se for adicionar)
@@ -14,6 +14,9 @@ function ItemHandle(props) {
   const [titulo, setTitulo] = useState(props.itemInicial ? props.itemInicial.titulo : '');
   const [data, setData] = useState(props.itemInicial ? props.itemInicial.data : '');
   const [valor, setValor] = useState(props.itemInicial ? props.itemInicial.valor : '');
+
+  // mensagem de erro, avisa se algum campo obrigatório não foi preenchido
+  const [erro, setErro] = useState('');
 
   let rotulo = 'despesa';
   if (props.tipo === 'ganhos') {
@@ -28,19 +31,29 @@ function ItemHandle(props) {
   function aoEnviarFormulario(evento) {
     evento.preventDefault();
 
-    // validação bem simples, só pra não salvar campo vazio
-    if (titulo.trim() === '' || data === '' || valor === '') {
+    // validação: nenhum campo pode estar vazio
+    if (titulo.trim() === '' || data.trim() === '' || valor === '') {
+      setErro('Preencha todos os campos antes de salvar.');
       return;
     }
 
+    const valorEmNumero = Number(valor);
+    if (isNaN(valorEmNumero) || valorEmNumero <= 0) {
+      setErro('Digite um valor numérico maior que zero.');
+      return;
+    }
+
+    setErro('');
     props.onSalvar({
-      titulo: titulo,
+      titulo: titulo.trim(),
       data: data,
-      valor: Number(valor),
+      valor: valorEmNumero,
     });
   }
 
   return (
+    // clicar no fundo escuro fecha o modal, clicar dentro do formulário não
+    // pelo stopPropagation
     <div className="handle-overlay" onClick={props.onFechar}>
       <form
         className="handle"
@@ -59,18 +72,21 @@ function ItemHandle(props) {
             onChange={function (evento) {
               setTitulo(evento.target.value);
             }}
-            placeholder="Ex: Supermercado"
+            placeholder={props.tipo === 'ganhos' ? 'Ex: Salário' : 'Ex: Supermercado'}
           />
         </label>
 
         <label className="handle__campo">
           Data
+          {/* mantemos texto simples aqui (não type="date") pra bater com o formato
+              dd/mm/aaaa que já é usado nos dados existentes do Movimentacoes.jsx */}
           <input
-            type="date"
+            type="text"
             value={data}
             onChange={function (evento) {
               setData(evento.target.value);
             }}
+            placeholder="dd/mm/aaaa"
           />
         </label>
 
@@ -87,6 +103,8 @@ function ItemHandle(props) {
             placeholder="0,00"
           />
         </label>
+
+        {erro !== '' && <p className="handle__erro">{erro}</p>}
 
         <div className="handle__acoes">
           <button

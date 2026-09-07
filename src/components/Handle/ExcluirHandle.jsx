@@ -1,6 +1,6 @@
 import './Handle.css';
 
-// Handle (modal) de confirmação de exclusão.
+// Handle modal - confirmar exclusão.
 //
 // Props esperadas:
 // - tipo: "despesas" ou "ganhos"
