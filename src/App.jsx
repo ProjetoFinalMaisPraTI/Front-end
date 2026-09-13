@@ -6,6 +6,7 @@ import Contact from './pages/Contact/Contact';
 import CreateAccount from './pages/CreateAccount/CreateAccount';
 import Login from './pages/Login/Login';
 import Movimentacoes from './pages/Movimentacoes/Movimentacoes';
+import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   return (
@@ -15,7 +16,15 @@ function App() {
       <Route path="/contato" element={<><Header /><Contact /></>} />
       <Route path="/criar-conta" element={<CreateAccount />} />
       <Route path="/entrar" element={<Login />} />
-      <Route path="/movimentacoes" element={<Movimentacoes />} />
+      <Route
+  path="/movimentacoes"
+  element={
+    <div className="layout-financas">
+      <Sidebar />
+      <Movimentacoes />
+    </div>
+  }
+/>
     </Routes>
   );
 }

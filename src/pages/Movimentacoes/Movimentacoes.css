@@ -1,28 +1,30 @@
 .movimentacoes {
   padding: 40px 48px;
   min-height: 100vh;
-  /* o fundo já vem do body (global.css), não precisa repetir aqui */
+  /* fundo vem do (global.css), não precisa repetir aqui */
 }
 
 .movimentacoes__topo {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 450px;
 }
 
+
 .movimentacoes__topo h1 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 0;
 }
 
 .movimentacoes__botao-add {
-  width: 56px;
-  height: 56px;
+  width: 32px;
+  height: 32px;
   border: none;
   border-radius: 50%;
   background: var(--cor-primaria);
   color: var(--branco);
-  font-size: 28px;
+  font-size: 16px;
   line-height: 1;
   cursor: pointer;
   transition: var(--transition);
@@ -61,7 +63,7 @@
 .movimentacoes__lista {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
+  max-width: 450px;
 }
 
 .movimentacoes__vazio {

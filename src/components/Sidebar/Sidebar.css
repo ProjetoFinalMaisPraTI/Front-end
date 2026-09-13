@@ -1,0 +1,136 @@
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: var(--branco);
+  display: flex;
+  flex-direction: column;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  transition: var(--transition);
+}
+
+/* quando fechada, a barra fica bem mais estreita e tudo se centraliza */
+.sidebar--fechada {
+  width: 72px;
+  align-items: center;
+}
+
+.sidebar__topo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.sidebar--fechada .sidebar__topo {
+  justify-content: center;
+}
+
+.sidebar__marca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sidebar__marca-icone {
+  color: var(--cor-primaria);
+  flex-shrink: 0;
+}
+
+.sidebar__logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--cor-primaria-bold);
+  white-space: nowrap;
+}
+
+.sidebar__botao-fechar {
+  border: none;
+  background: transparent;
+  color: var(--cinza-claro);
+  cursor: pointer;
+  font-size: 1.3rem;
+  line-height: 1;
+  padding: 4px 8px;
+  transition: var(--transition);
+}
+
+.sidebar__botao-fechar:hover {
+  color: var(--cor-primaria);
+}
+
+.sidebar__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  flex: 1;
+}
+
+.sidebar__item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--cinza-claro);
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.sidebar--fechada .sidebar__item {
+  justify-content: center;
+  padding: 12px;
+}
+
+.sidebar__item:hover {
+  background: var(--cor-primaria-light);
+  color: var(--cor-primaria-700);
+}
+
+/* item da página em que o usuário está agora: fundo verde claro, texto verde escuro */
+.sidebar__item--ativo {
+  background: var(--cor-primaria-light);
+  color: var(--cor-primaria-bold);
+  font-weight: 600;
+}
+
+.sidebar__icone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar__rotulo {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar__sair {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  border: none;
+  background: transparent;
+  color: var(--alerta);
+  cursor: pointer;
+  padding: 12px 14px;
+  border-radius: 10px;
+  margin-top: 16px;
+  width: 100%;
+  transition: var(--transition);
+}
+
+.sidebar--fechada .sidebar__sair {
+  justify-content: center;
+  padding: 12px;
+}
+
+.sidebar__sair:hover {
+  background: var(--cor-secundaria-light);
+}
