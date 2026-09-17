@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import Sobre from './pages/About/About';
@@ -8,13 +9,15 @@ import Login from './pages/Login/Login';
 
 function App() {
   return (
-    <Routes>
+    <><Routes>
       <Route path="/" element={<><Header /><Home /></>} />
       <Route path="/sobre" element={<><Header /><Sobre /></>} />
       <Route path="/contato" element={<><Header /><Contact /></>} />
       <Route path="/criar-conta" element={<CreateAccount />} />
       <Route path="/entrar" element={<Login />} />
     </Routes>
+    <Footer></Footer>
+    </>
   );
 }
 

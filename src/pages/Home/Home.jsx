@@ -79,10 +79,6 @@ function Home() {
           </svg>
         </div>
       </section>
-
-      <footer className="home-footer">
-        <p>© 2026 FinApp. Todos os direitos reservados.</p>
-      </footer>
     </div>
   );
 }
