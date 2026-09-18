@@ -9,7 +9,9 @@ import './Sidebar.css';
 // acompanha a mesma cor, emoji não consegue fazer isso
 const itensDoMenu = [
   {
-    rota: '/',
+    // vai pra uma página placeholder ("/nova-home") até a nova
+    // home de verdade ser criada, depois trocar essa rota
+    rota: '/nova-home',
     rotulo: 'Home',
     icone: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">

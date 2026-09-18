@@ -18,14 +18,3 @@ a {
 ul {
   list-style: none;
 }
-.layout-financas {
-  display: flex;
-}
-
-.layout-financas > aside {
-  flex: 0 0 auto;
-}
-
-.layout-financas .movimentacoes {
-  flex: 1;
-}
