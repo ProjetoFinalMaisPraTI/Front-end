@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Transactions.css";
 
-// Dados de exemplo pra ter algo na tela (API/backend)
+// Dados de exemplo pra ter algo na tela API-backend
 const despesasIniciais = [
   {
     id: 1,
@@ -188,23 +188,26 @@ export default function Transactions() {
     <div className="movimentacoes-pagina">
       <div className="cabecalho">
         <h1>Movimentações</h1>
-        <button className="botao-adicionar" onClick={abrirModalAdicionar}>
-          <span>+</span>
-        </button>
       </div>
 
-      <div className="abas">
-        <button
-          className={abaAtiva === "despesas" ? "aba aba-ativa" : "aba"}
-          onClick={() => trocarAba("despesas")}
-        >
-          Despesas
-        </button>
-        <button
-          className={abaAtiva === "ganhos" ? "aba aba-ativa" : "aba"}
-          onClick={() => trocarAba("ganhos")}
-        >
-          Ganhos
+      <div className="linha-abas">
+        <div className="abas">
+          <button
+            className={abaAtiva === "despesas" ? "aba aba-ativa" : "aba"}
+            onClick={() => trocarAba("despesas")}
+          >
+            Despesas
+          </button>
+          <button
+            className={abaAtiva === "ganhos" ? "aba aba-ativa" : "aba"}
+            onClick={() => trocarAba("ganhos")}
+          >
+            Ganhos
+          </button>
+        </div>
+
+        <button className="botao-adicionar" onClick={abrirModalAdicionar}>
+          +
         </button>
       </div>
 
