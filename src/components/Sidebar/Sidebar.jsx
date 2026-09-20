@@ -11,7 +11,7 @@ const itensDoMenu = [
   {
     // vai pra uma página placeholder ("/nova-home") até a nova
     // home de verdade ser criada, depois trocar essa rota
-    rota: '/nova-home',
+    rota: '/newHome',
     rotulo: 'Home',
     icone: (
       <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2">

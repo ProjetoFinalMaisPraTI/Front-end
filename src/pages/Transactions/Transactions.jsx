@@ -358,6 +358,8 @@ export default function Transactions() {
                   onChange={(evento) => atualizarCampo("recorrente", evento.target.value)}
                 >
                   <option value="nao">Não</option>
+                  <option value="mensal">Mensal</option>
+                  <option value="anual">Anual</option>
                   <option value="personalizado">Personalizado</option>
                 </select>
               </label>
