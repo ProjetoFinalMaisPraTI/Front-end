@@ -1,4 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
+import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
 import Home from './pages/Home/Home';
 import Sobre from './pages/About/About';
@@ -11,7 +12,7 @@ import Layout from './components/Layout/Layout';
 
 function App() {
   return (
-    <Routes>
+    <><Routes>
       <Route path="/" element={<><Header /><Home /></>} />
       <Route path="/sobre" element={<><Header /><Sobre /></>} />
       <Route path="/contato" element={<><Header /><Contact /></>} />
@@ -28,6 +29,8 @@ function App() {
         <Route path="/newhome" element={<NewHome />} />
       </Route>
     </Routes>
+    <Footer></Footer>
+    </>
   );
 }
 
