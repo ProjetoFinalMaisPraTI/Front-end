@@ -2,9 +2,10 @@
 .layout-financas {
   display: flex;
   min-height: 100vh;
+  background: var(--cor-secundaria-light);
 }
 
-.conteudo-pagina {
+.layout-financas__conteudo {
   flex: 1;
   padding: 24px;
 }
