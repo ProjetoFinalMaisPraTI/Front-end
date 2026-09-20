@@ -1,0 +1,10 @@
+/* Movida do global.css: é layout específico das páginas que usam a sidebar */
+.layout-financas {
+  display: flex;
+  min-height: 100vh;
+}
+
+.conteudo-pagina {
+  flex: 1;
+  padding: 24px;
+}
