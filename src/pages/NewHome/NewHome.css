@@ -1,0 +1,165 @@
+/* Página: o max-width vale para tudo (cards, abas, gráfico e lista) */
+.home-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 24px;
+  max-width: 650px;
+}
+
+.home-dashboard__saudacao {
+  color: #062d23;
+  font-size: 1.5rem;
+}
+
+/* Cards de resumo */
+.home-dashboard__resumo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.resumo-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 18px;
+  background: #ffffff;
+  border-radius: 20px;
+}
+
+.resumo-card__rotulo {
+  color: #b4b2a9;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.resumo-card__valor {
+  font-size: 1.05rem;
+  font-weight: 500;
+}
+
+.resumo-card__valor--despesa { color: #a32d2d; }
+.resumo-card__valor--ganho   { color: #0f6e56; }
+.resumo-card__valor--neutro  { color: #1a1a1a; }
+
+/* Abas e filtro */
+.home-dashboard__filtros {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.abas {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: #ffffff;
+  border-radius: 12px;
+}
+
+.abas__item {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #b4b2a9;
+  font-weight: 600;
+}
+
+.abas__item--ativa {
+  background: #0f6e56;
+  color: #ffffff;
+}
+
+.filtro-periodo {
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: #ffffff;
+  font-size: 0.9rem;
+}
+
+/* Gráfico */
+.grafico {
+  padding: 16px 24px;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.grafico__barras {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  height: 140px;
+}
+
+.grafico__coluna {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.grafico__barra {
+  width: 100%;
+  background: #b9f3e4;
+  border-radius: 8px 8px 0 0;
+}
+
+.grafico__barra--ativa {
+  background: #1f9d7a;
+}
+
+.grafico__mes {
+  font-size: 0.85rem;
+  color: #888780;
+}
+
+.grafico__ano {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/* Despesas recentes */
+.recentes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.recentes__cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recentes__titulo {
+  font-size: 1.1rem;
+}
+
+.despesa-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+.despesa-item__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.despesa-item__data {
+  color: #b4b2a9;
+  font-size: 0.8rem;
+}
+
+.despesa-item__valor {
+  color: #a32d2d;
+}
