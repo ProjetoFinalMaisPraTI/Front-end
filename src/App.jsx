@@ -26,7 +26,7 @@ function App() {
           Sidebar . */}
       <Route element={<Layout />}>
         <Route path="/movimentacoes" element={<Transactions />} />
-        <Route path="/newHome" element={<NewHome />} />
+        <Route path="/newhome" element={<NewHome />} />
       </Route>
     </Routes>
     <Footer></Footer>
