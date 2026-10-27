@@ -7,7 +7,7 @@ import Contact from './pages/Contact/Contact';
 import CreateAccount from './pages/CreateAccount/CreateAccount';
 import Login from './pages/Login/Login';
 import Transactions from './pages/Transactions/Transactions';
-import NewHome from './pages/NewHome/NewHome';
+import Painel from './pages/Painel/Painel';
 import Layout from './components/Layout/Layout';
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
           Sidebar . */}
       <Route element={<Layout />}>
         <Route path="/movimentacoes" element={<Transactions />} />
-        <Route path="/newhome" element={<NewHome />} />
+        <Route path="/painel" element={<Painel />} />
       </Route>
     </Routes>
     <Footer></Footer>

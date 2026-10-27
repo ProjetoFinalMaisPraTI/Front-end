@@ -65,6 +65,7 @@
   background: transparent;
   color: #b4b2a9;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .abas__item--ativa {
@@ -74,9 +75,16 @@
 
 .filtro-periodo {
   padding: 8px 14px;
+  border: none;
   border-radius: 12px;
   background: #ffffff;
+  font-family: inherit;
   font-size: 0.9rem;
+}
+
+/* O select (lista de opções) usa o dedo de clique */
+select.filtro-periodo {
+  cursor: pointer;
 }
 
 /* Gráfico */
@@ -117,10 +125,31 @@
   color: #888780;
 }
 
-.grafico__ano {
+/* Navegação do ano: botão voltar, ano, botão avançar */
+.grafico__navegacao {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
   margin-top: 16px;
+}
+
+.grafico__ano {
+  min-width: 48px;
   text-align: center;
   font-size: 1rem;
+}
+
+.grafico__botao-ano {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 50%;
+  background: #e0fbf4;
+  color: #0f6e56;
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
 }
 
 /* Despesas recentes */
@@ -138,6 +167,11 @@
 
 .recentes__titulo {
   font-size: 1.1rem;
+}
+
+.recentes__vazio {
+  color: #888780;
+  font-size: 0.9rem;
 }
 
 .despesa-item {
@@ -160,6 +194,11 @@
   font-size: 0.8rem;
 }
 
-.despesa-item__valor {
+/* A cor do valor depende do tipo: despesa (vermelho) ou ganho (verde) */
+.despesa-item__valor--despesa {
   color: #a32d2d;
+}
+
+.despesa-item__valor--ganho {
+  color: #0f6e56;
 }
