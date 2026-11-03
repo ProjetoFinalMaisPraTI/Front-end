@@ -1,0 +1,136 @@
+.contato {
+  max-width: 900px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.contato h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: var(--cor-primaria-bold);
+}
+
+.contato-subtitulo {
+  color: var(--cinza-escuro);
+  margin-bottom: 40px;
+}
+
+.contato-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 24px;
+  text-align: left;
+}
+
+/* Formulário */
+.contato-form {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.contato-form input,
+.contato-form textarea {
+  border: 1px solid var(--cor-primaria-100);
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  color: var(--preto);
+  background: var(--branco);
+  resize: none;
+  transition: var(--transition);
+}
+
+.contato-form input::placeholder,
+.contato-form textarea::placeholder {
+  color: var(--cinza-claro);
+}
+
+.contato-form input:focus,
+.contato-form textarea:focus {
+  outline: none;
+  border-color: var(--cor-primaria);
+}
+
+.botao-enviar {
+  background: var(--cor-primaria-bold);
+  color: var(--branco);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.botao-enviar:hover {
+  background: var(--cor-primaria-900);
+}
+
+/* Cards de informação */
+.contato-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: var(--transition);
+}
+
+.info-card:hover {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.info-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--cinza-claro);
+}
+
+.info-valor {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--cor-primaria-bold);
+}
+
+/* Ícones (mesmo padrão do Sobre.css) */
+.icone-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.icone-email {
+  background: var(--cor-primaria-100);
+  color: var(--cor-primaria-800);
+}
+
+.icone-telefone {
+  background: var(--cor-secundaria-100);
+  color: var(--cor-secundaria-800);
+}
+
+.icone-local {
+  background: var(--cor-primaria-100);
+  color: var(--cor-primaria-800);
+}

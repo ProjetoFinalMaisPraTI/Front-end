@@ -1,0 +1,87 @@
+.sobre {
+  max-width: 700px;
+  margin: 60px auto;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.sobre h1 {
+  font-size: 2rem;
+  margin-bottom: 12px;
+  color: var(--cor-primaria-bold);
+}
+
+.sobre-subtitulo {
+  color: var(--cinza-escuro);
+  margin-bottom: 40px;
+}
+
+.sobre-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-numero {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--cor-primaria);
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--cinza-escuro);
+}
+
+.sobre-card {
+  background: var(--branco);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 16px;
+  text-align: left;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  transition: var(--transition);
+}
+
+.sobre-card:hover {
+  border-color: var(--cor-primaria-200);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.sobre-card h3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  color: var(--cor-primaria-bold);
+}
+
+.sobre-card p {
+  color: var(--cinza-escuro);
+  font-size: 0.95rem;
+}
+
+.icone-card {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.icone-missao {
+  background: var(--cor-secundaria-100);
+  color: var(--cor-secundaria-800);
+}
+
+.icone-quemsomos {
+  background: var(--cor-primaria-100);
+  color: var(--cor-primaria-800);
+}
