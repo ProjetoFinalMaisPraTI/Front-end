@@ -1,67 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import api from "../../services/api";
 import "./Transactions.css";
-
-// Dados de exemplo pra ter algo na tela API-backend
-const despesasIniciais = [
-  {
-    id: 1,
-    titulo: "Supermercado",
-    valor: 214.5,
-    data: "2026-08-28",
-    parcelado: false,
-    qtdParcelas: "",
-    descricao: "",
-    recorrente: "nao",
-    repetirDias: "",
-  },
-  {
-    id: 2,
-    titulo: "Uber",
-    valor: 32.9,
-    data: "2026-08-27",
-    parcelado: false,
-    qtdParcelas: "",
-    descricao: "Corrida até o trabalho",
-    recorrente: "nao",
-    repetirDias: "",
-  },
-  {
-    id: 3,
-    titulo: "Passagem aérea",
-    valor: 890.0,
-    data: "2026-08-24",
-    parcelado: true,
-    qtdParcelas: "3",
-    descricao: "",
-    recorrente: "nao",
-    repetirDias: "",
-  },
-];
-
-const ganhosIniciais = [
-  {
-    id: 1,
-    titulo: "Salário",
-    valor: 3200.0,
-    data: "2026-08-05",
-    parcelado: false,
-    qtdParcelas: "",
-    descricao: "",
-    recorrente: "personalizado",
-    repetirDias: "30",
-  },
-  {
-    id: 2,
-    titulo: "Freelance",
-    valor: 450.0,
-    data: "2026-08-18",
-    parcelado: false,
-    qtdParcelas: "",
-    descricao: "",
-    recorrente: "nao",
-    repetirDias: "",
-  },
-];
 
 // valores iniciais "vazios" do formulário, quando abre o modal de adicionar
 const formularioVazio = {
@@ -79,9 +18,9 @@ export default function Transactions() {
   // aba selecionada: "despesas" ou "ganhos"
   const [abaAtiva, setAbaAtiva] = useState("despesas");
 
-  // cada aba tem sua própria lista
-  const [despesas, setDespesas] = useState(despesasIniciais);
-  const [ganhos, setGanhos] = useState(ganhosIniciais);
+  // lista vindas do backend
+  const [despesas, setDespesas] = useState([]);
+  const [ganhos, setGanhos] = useState([]);
 
   // id do item que está "aberto" (mostra os botões de editar/excluir no lugar da seta, sem deslizar o resto do conteúdo)
   const [itemAbertoId, setItemAbertoId] = useState(null);
@@ -97,7 +36,23 @@ export default function Transactions() {
 
   // pega a lista certa dependendo da aba
   const itens = abaAtiva === "despesas" ? despesas : ganhos;
-  const setItens = abaAtiva === "despesas" ? setDespesas : setGanhos;
+  
+  useEffect(() => {
+    carregarTransacoes();
+  }, []);
+
+  async function carregarTransacoes() {
+    try {
+      const response = await api.get("/transacoes");
+      const dados = response.data;
+
+      setDespesas(dados.filter(item => item.tipo === "despesa"));
+      setGanhos(dados.filter(item => item.tipo === "ganho"));
+
+    } catch (error) {
+      console.error("Erro ao carregar transações:", error);
+    }
+  }
 
   function trocarAba(aba) {
     setAbaAtiva(aba);
@@ -125,10 +80,10 @@ export default function Transactions() {
       valor: String(item.valor),
       data: item.data,
       parcelado: item.parcelado,
-      qtdParcelas: item.qtdParcelas,
-      descricao: item.descricao,
-      recorrente: item.recorrente,
-      repetirDias: item.repetirDias,
+      qtdParcelas: item.qtdParcelas || "",
+      descricao: item.descricao || "",
+      recorrente: item.recorrente || "nao",
+      repetirDias: item.repetirDias || "",
     });
     setItemSelecionado(item);
     setModalAberto("editar");
@@ -144,9 +99,8 @@ export default function Transactions() {
     setItemSelecionado(null);
   }
 
-  function salvarItem(evento) {
+  async function salvarItem(evento) {
     evento.preventDefault();
-
     if (!formulario.titulo || !formulario.valor || !formulario.data) {
       alert("Preencha pelo menos título, valor e data!");
       return;
@@ -161,24 +115,54 @@ export default function Transactions() {
       descricao: formulario.descricao,
       recorrente: formulario.recorrente,
       repetirDias: formulario.recorrente === "personalizado" ? formulario.repetirDias : "",
+      tipo: abaAtiva === "despesas" ? "despesa" : "ganho",
     };
 
-    if (modalAberto === "adicionar") {
-      setItens([{ id: Date.now(), ...dadosDoItem }, ...itens]);
-    }
+    try {
+      if (modalAberto === "adicionar") {
+        const response = await api.post("/transacoes", dadosDoItem);
+        if (abaAtiva === "despesas") {
+          setDespesas([response.data, ...despesas]);
+        } else {
+          setGanhos([response.data, ...ganhos]);
+        }
+      }
 
-    if (modalAberto === "editar") {
-      setItens(
-        itens.map((item) => (item.id === itemSelecionado.id ? { ...item, ...dadosDoItem } : item))
-      );
-    }
+      if (modalAberto === "editar") {
+        const response = await api.put(`/transacoes/${itemSelecionado.id}`, dadosDoItem);
+        const atualizados = itens.map((item) => 
+          item.id === itemSelecionado.id ? response.data : item);
+        if (abaAtiva === "despesas") {
+          setDespesas(atualizados);
+        } else {
+          setGanhos(atualizados);
+        }
+      }
 
-    fecharModal();
+      fecharModal();
+
+    } catch (error) {
+      console.error("Erro ao salvar transação:", error);
+      alert("Ocorreu um erro ao salvar a transação. Por favor, tente novamente.");
+    }
   }
 
-  function confirmarExclusao() {
-    setItens(itens.filter((item) => item.id !== itemSelecionado.id));
-    fecharModal();
+ 
+
+  async function confirmarExclusao() {
+    try {
+      await api.delete(`/transacoes/${itemSelecionado.id}`);
+      const filtrados = itens.filter((item) => item.id !== itemSelecionado.id);
+      if (abaAtiva === "despesas") {
+        setDespesas(filtrados);
+      } else {
+        setGanhos(filtrados);
+      }
+      fecharModal();
+    } catch (erro) {
+      console.error("Erro ao excluir transação:", erro);
+      alert("Erro ao excluir o item.");
+    }
   }
 
   // texto usado em vários lugares: "despesa" ou "ganho"
