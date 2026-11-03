@@ -48,7 +48,7 @@ function CriarConta() {
     setLoading(true);
 
     try {
-      const response = await api.post('/usuarios', {
+      const response = await api.post('/auth/registrar', {
         nome,
         email,
         senha
