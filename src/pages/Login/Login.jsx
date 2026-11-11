@@ -1,7 +1,33 @@
-import { Link } from 'react-router-dom';
+import {useState} from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import api from '../../services/api';
 import './Login.css';
 
 function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+
+    try {
+      const response = await api.post('/auth/login', { email, senha: password });
+      console.log('Resposta do login:', response.data);
+      localStorage.setItem('usuario', JSON.stringify(response.data));
+      navigate('/painel');
+    } catch (error) {
+      console.error('Erro ao fazer login:', error);
+      setError(error.response?.data?.message || 'Erro ao fazer login. Verifique suas credenciais.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="login-pagina">
       <div className="login-topo">
@@ -25,7 +51,9 @@ function Login() {
         <h1>Bem-vindo de volta</h1>
         <p className="login-subtitulo">Entre para continuar organizando suas finanças</p>
 
-        <form className="login-form">
+        {error && <div className="mensagem-erro" style={{ color: 'red', marginBottom: '15px', fontSize: '14px' }}>{error}</div>}
+
+        <form className="login-form" onSubmit={handleLogin}>
           <div className="campo">
             <label>E-mail</label>
             <div className="campo-input">
@@ -33,7 +61,13 @@ function Login() {
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <path d="m22 7-10 5L2 7" />
               </svg>
-              <input type="email" placeholder="seuemail@exemplo.com" />
+              <input 
+              type="email" 
+              placeholder="seuemail@exemplo.com" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              />
             </div>
           </div>
 
@@ -44,13 +78,20 @@ function Login() {
                 <rect x="3" y="11" width="18" height="11" rx="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
-              <input type="password" placeholder="••••••••" />
+              <input 
+              type="password" 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              />
             </div>
           </div>
 
           <Link to="/esqueci-senha" className="esqueci-senha">Esqueci minha senha</Link>
 
-          <button type="submit" className="botao-entrar">Entrar</button>
+          <button type="submit" className="botao-entrar" disabled={loading}>
+            {loading ? 'Entrando...' : 'Entrar'}
+          </button>
         </form>
 
         <p className="nao-tem-conta">
