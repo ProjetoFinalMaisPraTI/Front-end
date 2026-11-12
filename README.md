@@ -1,4 +1,4 @@
-# FinApp — Frontend
+# FinApp - Frontend
 
 Frontend do Sistema de Ajuda Financeira, uma aplicação para visualizar e
 organizar movimentações financeiras pessoais. A interface conecta-se à API
